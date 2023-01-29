@@ -28,9 +28,10 @@ const NewCard = (props) => {
   };
   const getcardNo = (event) => {
     setcardNo(event.target.value);
-    !isNaN(event.target.value) && !isNaN(parseFloat(event.target.value))
-      ? console.log("Correct number")
-      : toast.error("Please enter only numbers") && setcardNo("");
+    if(isNaN(event.target.value) && !isNaN(parseFloat(event.target.value))){
+      toast.error("Please enter only numbers") && setcardNo("");
+    }
+    
   };
   const getExpiry = (event) => {
     setExpiry(event.target.value);

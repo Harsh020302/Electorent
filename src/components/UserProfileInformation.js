@@ -40,9 +40,10 @@ const UserProfileInformation = (props) => {
   //here we see if only numbers are being entred.
   const getmobileNumber = (event) => {
     setmobileNumber(event.target.value);
-    !isNaN(event.target.value) && !isNaN(parseFloat(event.target.value))
-      ? console.log("Correct number")
-      : toast.error("Please enter only numbers") && setmobileNumber("");
+    if(isNaN(event.target.value) && !isNaN(parseFloat(event.target.value))){
+      toast.error("Please enter only numbers") && setmobileNumber("");
+    }
+    
   };
   //Functon to check validation of the data.
   const checkValidation = () => {

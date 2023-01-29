@@ -35,9 +35,11 @@ const NewAdress = (props) => {
   const getphoneNo = (event) => {
     //Dont let user enter numbers.
     setPhoneNo(event.target.value);
-    !isNaN(event.target.value) && !isNaN(parseFloat(event.target.value))
-      ? console.log("Correct number")
-      : toast.error("Please enter only numbers") && setPhoneNo("");
+    // eslint-disable-next-line no-unused-vars
+    if(isNaN(event.target.value) && !isNaN(parseFloat(event.target.value))){
+      toast.error("Please enter only numbers") && setPhoneNo("");
+    }
+    
   };
   const getAdress = (event) => {
     setAddress(event.target.value);
